@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Infographic và Video</title>
+  <style>
+    :root{
+      --gap:16px;
+      --max-width:1100px;
+      --bg:#f7f7f8;
+      --card:#ffffff;
+      --accent:#0b74da;
+    }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);
+      color:#111;
+      display:flex;
+      justify-content:center;
+      padding:32px 16px;
+    }
+    .container{
+      max-width:var(--max-width);
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:var(--gap);
+      align-items:start;
+    }
+    .card{
+      background:var(--card);
+      border-radius:8px;
+      padding:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+    }
+    h1{margin:0 0 8px 0;font-size:1.1rem}
+    p.small{margin:0 0 12px 0;color:#444;font-size:.95rem}
+    figure{margin:0}
+    img.infographic{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:6px;
+      cursor:pointer;
+    }
+    .meta{
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    a.btn{
+      display:inline-block;
+      padding:8px 12px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border-radius:6px;
+      font-size:.95rem;
+    }
+    video{
+      width:100%;
+      height:auto;
+      border-radius:6px;
+      background:black;
+    }
+
+    /* Responsive: stack on small screens */
+    @media (max-width:820px){
+      .container{grid-template-columns:1fr; }
+    }
+
+    /* Simple modal for viewing infographic larger */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,.6);
+      z-index:1000;
+      padding:24px;
+    }
+    .modal.show{display:flex;}
+    .modal img{max-width:100%;max-height:90vh;border-radius:6px;}
+    .close-btn{
+      position:absolute;
+      top:16px;
+      right:16px;
+      background:rgba(255,255,255,.9);
+      border-radius:999px;
+      width:36px;height:36px;
+      display:inline-grid;place-items:center;
+      cursor:pointer;font-weight:700;
+    }
+  </style>
+</head>
+<body>
+  <main class="container" aria-labelledby="page-title">
+    <section class="card" aria-labelledby="infographic-title">
+      <h1 id="infographic-title">Infographic</h1>
+      <p class="small">Click vào ảnh để phóng to. Tải xuống infographic nếu cần.</p>
+
+      <figure>
+        <img
+          class="infographic"
+          src="assets/infographic.jpg"
+          alt="Tiêu đề infographic — tóm tắt bằng một câu ngắn"
+          loading="lazy"
+          id="infographic-img"
+        />
+      </figure>
+
+      <div class="meta">
+        <a class="btn" href="assets/infographic.jpg" download="infographic.jpg" aria-label="Tải xuống infographic">Tải xuống</a>
+        <a class="btn" href="#video" style="background:#555">Xem video bên cạnh</a>
+      </div>
+    </section>
+
+    <section class="card" id="video" aria-labelledby="video-title">
+      <h1 id="video-title">Video MP4</h1>
+      <p class="small">Video có controls, poster và phụ đề (caption). Nếu trình duyệt không hỗ trợ, có link tải xuống.</p>
+
+      <video controls preload="metadata" poster="assets/video-poster.jpg">
+        <source src="assets/video.mp4" type="video/mp4" />
+        <!-- Phụ đề (WebVTT) -->
+        <track kind="captions" src="assets/subtitles.vtt" srclang="vi" label="Tiếng Việt" default />
+        <!-- Fallback -->
+        Trình duyệt của bạn không hỗ trợ thẻ video. Tải video tại:
+        <a href="assets/video.mp4" download="video.mp4">Tải video MP4</a>
+      </video>
+
+      <div class="meta" style="margin-top:12px">
+        <a class="btn" href="assets/video.mp4" download="video.mp4" aria-label="Tải xuống video">Tải xuống video</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal để phóng to infographic -->
+  <div id="img-modal" class="modal" role="dialog" aria-modal="true" aria-label="Phóng to infographic">
+    <button id="modal-close" class="close-btn" aria-label="Đóng">✕</button>
+    <img id="modal-img" alt="">
+  </div>
+
+  <script>
+    (function(){
+      const img = document.getElementById('infographic-img');
+      const modal = document.getElementById('img-modal');
+      const modalImg = document.getElementById('modal-img');
+      const closeBtn = document.getElementById('modal-close');
+
+      function openModal(){
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add('show');
+        closeBtn.focus();
+      }
+      function closeModal(){
+        modal.classList.remove('show');
+        img.focus();
+      }
+
+      img.addEventListener('click', openModal);
+      img.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' ') openModal(); });
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+      document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+      // Make image focusable for keyboard users
+      img.tabIndex = 0;
+    })();
+  </script>
+</body>
+</html>

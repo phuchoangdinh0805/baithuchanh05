@@ -1,33 +1,189 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lợi ích công nghệ số</title>
-  <style>
-    /* giữ nguyên CSS của bạn */
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:"Segoe UI","Poppins",sans-serif;background:linear-gradient(135deg,#e6f0ff 0%,#f8fbff 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:40px 10px;animation:fadeIn 1.2s ease}
-    h1{font-size:2rem;color:#1f65ff;margin-bottom:10px;text-align:center;letter-spacing:1px}
-    p.subtitle{color:#333;font-size:1.1rem;text-align:center;margin-bottom:30px}
-    .card{background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.1);border-radius:18px;overflow:hidden;max-width:600px;width:100%;transition:transform .3s ease,box-shadow .3s ease}
-    .card img{width:100%;display:block;border-bottom:1px solid #e0e0e0}
-    footer{text-align:center;color:#555;font-size:.9rem;margin-top:25px}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công Nghệ Số Trong Đời Sống Hiện Đại</title>
+    <!-- Tải Tailwind CSS để thiết kế nhanh chóng và đẹp mắt -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Thiết lập font Inter (phổ biến và dễ đọc) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            scroll-behavior: smooth;
+        }
+        .text-blue-main {
+            color: #2196F3; /* Màu xanh chủ đạo */
+        }
+        .bg-blue-footer {
+            background-color: #4299E1; /* Màu xanh đậm cho footer */
+        }
+        /* Keyframes cho hiệu ứng Fade In khi cuộn */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Class để ẩn ban đầu và áp dụng hiệu ứng */
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        /* Hiệu ứng zoom nhẹ cho hình ảnh */
+        .image-zoom:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-main': '#2196F3',
+                        'blue-light': '#E3F2FD',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <h1>LỢI ÍCH CÔNG NGHỆ SỐ</h1>
-  <p class="subtitle">Công nghệ số trong đời sống hiện đại</p>
+<body class="text-gray-800">
 
-  <div class="card">
-    <img src="infographic-benefits.png" alt="Infographic lợi ích công nghệ số">
-  </div>
+    <!-- Header / Hero Section (Video Background) -->
+    <header class="relative h-[60vh] md:h-[80vh] overflow-hidden">
+        <!-- Video Background - Sử dụng video bạn cung cấp (7141313981768.mp4) -->
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+            <source src="uploaded:7141313981768.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ thẻ video.
+        </video>
 
-  <footer>
-    © 2025 | Giấy phép:
-    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 (CC BY 4.0)</a><br>
-    Infographic tạo bởi Canva AI, hình ảnh từ Unsplash
-  </footer>
+        <!-- Lớp phủ mờ để chữ dễ đọc hơn -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60"></div>
+
+        <!-- Nội dung chính của Header -->
+        <div class="relative flex flex-col items-center justify-center h-full text-center p-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white animate-pulse tracking-tight">
+                LỢI ÍCH CỦA CÔNG NGHỆ SỐ
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-blue-light font-medium max-w-3xl">
+                Khám phá sức mạnh của công nghệ số trong việc cải thiện và nâng tầm cuộc sống hiện đại của bạn.
+            </p>
+            <a href="#loi-ich-section" class="mt-8 px-8 py-3 bg-blue-main text-white font-semibold rounded-full shadow-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                Tìm Hiểu Ngay
+            </a>
+        </div>
+    </header>
+
+    <!-- Content Section - Lợi Ích (Dựa trên Infographic) -->
+    <section id="loi-ich-section" class="py-16 md:py-24 max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-blue-main fade-in-scroll">
+            CÔNG NGHỆ SỐ TRONG ĐỜI SỐNG
+        </h2>
+
+        <!-- Tiện Lợi -->
+        <div class="flex flex-col md:flex-row items-center gap-10 mb-20 fade-in-scroll">
+            <div class="md:w-1/2 order-2 md:order-1">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-main">1. TIỆN LỢI</h3>
+                <p class="mt-4 text-lg">
+                    Công nghệ số giúp tiết kiệm thời gian và nâng cao hiệu quả trong công việc hàng ngày. Từ việc thanh toán không tiền mặt đến quản lý công việc từ xa, mọi thứ đều trở nên nhanh chóng và dễ dàng hơn.
+                </p>
+            </div>
+            <div class="md:w-1/2 order-1 md:order-2 flex justify-center">
+                <div class="w-64 h-64 bg-blue-light rounded-full flex items-center justify-center p-2 shadow-xl transform transition duration-500 image-zoom">
+                    <!-- Mô phỏng hình ảnh máy tính/tablet -->
+                    <svg class="w-full h-full text-blue-main" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1v-3.25m-7.25 0h10.5m-10.5 0l-1-1h12.5l-1 1m-10.5 0V7.75a2 2 0 012-2h6.5a2 2 0 012 2V17m-10.5 0V7.75"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kết Nối -->
+        <div class="flex flex-col md:flex-row items-center gap-10 mb-20 fade-in-scroll">
+            <div class="md:w-1/2 flex justify-center">
+                <div class="w-64 h-64 bg-blue-light rounded-full flex items-center justify-center p-2 shadow-xl transform transition duration-500 image-zoom">
+                    <!-- Mô phỏng hình ảnh ứng dụng/kết nối -->
+                    <svg class="w-full h-full text-blue-main" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C5.353 14.07 7.29 13 9 13h12z"></path></svg>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-main">2. KẾT NỐI</h3>
+                <p class="mt-4 text-lg">
+                    Công nghệ số mang đến khả năng kết nối nhanh chóng và dễ dàng giữa con người với nhau, vượt qua mọi rào cản địa lý thông qua các nền tảng mạng xã hội và họp trực tuyến.
+                </p>
+            </div>
+        </div>
+
+        <!-- Học Hỏi -->
+        <div class="flex flex-col md:flex-row items-center gap-10 fade-in-scroll">
+            <div class="md:w-1/2 order-2 md:order-1">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-main">3. HỌC HỎI</h3>
+                <p class="mt-4 text-lg">
+                    Các nền tảng trực tuyến giúp tiếp cận kiến thức và kỹ năng mới một cách toàn cầu và tiện lợi. Việc học trở nên sinh động, trực quan và cá nhân hóa hơn, rèn luyện tư duy phản biện, sáng tạo. (Nội dung này được tổng hợp từ Infographic và video).
+                </p>
+            </div>
+            <div class="md:w-1/2 order-1 md:order-2 flex justify-center">
+                <div class="w-64 h-64 bg-blue-light rounded-full flex items-center justify-center p-2 shadow-xl transform transition duration-500 image-zoom">
+                    <!-- Mô phỏng hình ảnh học trực tuyến -->
+                    <svg class="w-full h-full text-blue-main" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 007.29-3.41l-.41-.41a7 7 0 01-13.73 0l-.41.41A9 9 0 0012 21zm0-18a9 9 0 00-7.29 3.41l.41.41a7 7 0 0113.73 0l.41-.41A9 9 0 0012 3z"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-20 text-center fade-in-scroll">
+            <h3 class="text-2xl md:text-4xl font-bold text-gray-700">KHÁM PHÁ NGAY</h3>
+            <p class="mt-2 text-xl max-w-3xl mx-auto">
+                Tận dụng công nghệ số để cải thiện chất lượng cuộc sống và mở rộng tri thức của bạn.
+            </p>
+            <button class="mt-6 px-10 py-4 bg-blue-main text-white font-bold text-lg rounded-xl shadow-2xl transition duration-500 transform hover:scale-110 hover:shadow-blue-500/50">
+                Bắt Đầu Hành Trình Số
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-footer text-white py-8 px-4 mt-12">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-sm">
+                "Infographic tạo bởi Canva AI, hình ảnh từ Unsplash"
+            </p>
+            <p class="text-xs mt-2 opacity-75">
+                © 2025. Nguồn cảm hứng nội dung từ các tệp đã cung cấp.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript để xử lý hiệu ứng cuộn (Scroll Animation) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target); // Ngừng theo dõi sau khi đã xuất hiện
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Bắt đầu hiệu ứng khi phần tử xuất hiện 10%
+            });
+
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
 </body>
 </html>
